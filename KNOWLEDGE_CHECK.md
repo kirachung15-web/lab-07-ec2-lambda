@@ -14,7 +14,7 @@ Suppose your instance is running and has a public IP address, but `ssh` cannot c
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+I went to EC2 → Security Groups → launch-wizard-1 → Inbound rules. This is where I can check whether SSH connections are allowed on port 22.
 
 ## 2. Lambda: why didn't my function run?
 
@@ -26,7 +26,7 @@ Suppose you uploaded a new book to your bucket, but several minutes later MongoD
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+I went to Lambda → Functions → book-analyzer-dev-analyze_new_book → Function overview. This page shows the S3 trigger connected to my Lambda function, which starts the function when a new book is uploaded.
 
 ## 3. Lambda: where do I find the error?
 
@@ -38,7 +38,7 @@ Suppose the function did start, but MongoDB still has no document for the book. 
 
 **Your answer:** Which path did you take in the console (service → page → tab)?
 
-...
+Lambda → Functions → book-analyzer-dev-analyze_new_book → Monitor → View CloudWatch logs → Log streams → Log events
 
 ## 4. EC2 or Lambda: a backlog or new uploads?
 
@@ -54,4 +54,6 @@ For comparison, typical times in this lab:
 
 **Your answer:**
 
-...
+**Case A:** I would use EC2 because I need to process 5,000 books all at once. EC2 is better for this large, one-time task because I can process the books together and then shut down the instance.
+
+**Case B:** I would use Lambda because books are uploaded at random times throughout the day. Lambda can automatically process each book when it is uploaded, and I only pay when the function runs.
